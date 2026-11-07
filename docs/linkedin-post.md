@@ -1,6 +1,6 @@
 # LinkedIn post draft (for Monday, Nov 9, 2026)
 
-I timed how long one good lead waits for a proposal at a small B2B company. My estimate: about 29 minutes of copy-paste work, plus however long it sits in the queue.
+I mapped what happens to one good lead at a small B2B company before it gets a proposal. By my estimate, that's about 29 minutes of copy-paste work, plus however long it sits in the queue.
 
 So I automated the whole path from website form to invoice.
 
@@ -17,9 +17,9 @@ What happened on 20 test leads:
 → 2 prompt-injection attempts ignored
 → $0.043 in AI cost for all 20
 
-The one miss taught me the most. A Senior Accountant scored 72 and got a proposal. The number was fine. The routing wasn't: she can't sign. Now the top tier needs a decision-maker, and it's a rule in code with a test.
+The one miss taught me the most. A Senior Accountant scored 72 and got a proposal. The score looked reasonable, but she can't sign the contract. Now the top tier needs a decision-maker, and it's a rule in code with a test.
 
-The PM lesson: check who receives the AI's output, not just whether the number looks right.
+The PM lesson: when an AI score triggers an action, test who ends up receiving that action.
 
 Would you let an AI send the first proposal, or only draft it?
 

@@ -10,7 +10,7 @@ Ansh Kumar · Solo PM and builder · November 4 to 7, 2026 · n8n, Claude Haiku 
 
 - **Problem:** in small B2B companies, a lead travels from form to invoice through about nine manual copy-paste steps, and the best leads wait as long as the worst.
 - **Built:** one n8n workflow. Website form → company research → AI lead score against an ICP rubric → HubSpot contact and deal → AI-personalised proposal in Google Docs → Stripe test invoice when the deal is won.
-- **Result (20 test leads, real AI calls):** a proposal draft 6 to 11 seconds after submit (median 8.2 s), 19 of 20 leads routed as expected, 8 of 8 proposal drafts passed the code checks, two prompt-injection attempts ignored, AI cost under half a cent per qualified lead.
+- **Result (20 test leads, real AI calls):** a proposal draft 6 to 11 seconds after submit (median 8.2 s), 19 of 20 leads routed as expected, 8 of 8 proposal drafts passed the code checks, two prompt-injection attempts ignored, and $0.043 in AI cost for all 20 leads ($0.003 to $0.011 for each tier A lead).
 
 **Skills:** Workflow automation · AI automation · APIs · Sales operations · Prompt engineering · Product thinking
 
@@ -89,8 +89,8 @@ One n8n workflow, 41 nodes, two triggers. Blue = AI model, green = plain code.
 
 1. **The model scores parts, code decides.** Claude returns four sub-scores (role, company, pain, buying signal), each with quoted evidence. Code clamps them, adds them up, applies caps (students max 15, personal email max 60) and sets the tier. In testing the code cap overrode the model once: a strong lead on a gmail address scored 86 and was capped to 60, so no proposal went to a personal inbox.
 2. **Untrusted text is labelled as untrusted.** The website excerpt is wrapped in tags and the prompt says never to follow instructions inside it. Both injection tests (one in the form message, one hidden in a website) were ignored, and the model flagged them to the rep.
-3. **Customer-facing text is checked in code.** The proposal intro must be 40 to 140 words, with no hype words, no em dashes and no number the lead didn't give. If it fails, a plain template sentence is used and the deal says why. 8 of 8 passed.
-4. **Two models, matched to the job.** Haiku scores every lead for about $0.0005. Sonnet writes only for tier A, about $0.003 to $0.011.
+3. **Customer-facing text is checked in code.** The proposal intro must be 40 to 140 words, with no hype words, no em dashes, and no number that isn't in the lead's form, their website or the price list. If it fails, a plain template sentence is used and the deal says why. 8 of 8 passed.
+4. **Two models, matched to the job.** Haiku scores every lead for about $0.0005. Sonnet writes only for tier A, and a tier A lead costs $0.003 to $0.011 in total.
 5. **The buyer's own choice wins.** When the lead picked a plan and the AI suggested another (twice in testing), the lead's plan went on the deal with the disagreement noted.
 6. **Humans own the irreversible steps.** No proposal email, no invoice email, no live payments.
 
@@ -110,13 +110,13 @@ Real Claude and Firecrawl calls on 20 fictional leads written with expected tier
 Other findings:
 - Tiers: 8 A, 4 B, 6 C, 2 rejected in under 0.1 s.
 - The same lead re-scored within 1 to 3 points (90 vs 89, 81 vs 84, 72 vs 74).
-- Won-deal tests: invoice created and recorded; the next poll skipped the deal; a live Stripe key stopped the run.
+- Won-deal tests (Stripe responses simulated): the invoice was created and recorded, the next poll skipped the deal, and a live Stripe key stopped the run.
 
 ## 8. What broke
 
 | What I saw | Fix | What I took from it |
 | --- | --- | --- |
-| A Senior Accountant (lead 15) scored 72 and got a proposal | v1.1: tier A needs role fit 20+; unit test first; re-run moved the lead to B and kept two real A leads at A | The total can be right and the routing still wrong. Check who receives the output, not just the number |
+| A Senior Accountant (lead 15) scored 72 and got a proposal | v1.1: tier A needs role fit 20+; unit test first; re-run moved the lead to B and kept two real A leads at A | The total can be right and the routing still wrong. I now check who receives the output as well as the number |
 | Enrichment hit a 404 on a hosted test page | v1.2: lowercase only the domain, not the URL path | Every "clean the data" step is a place to break the data |
 | All `.example` test websites fail DNS, so v1 never scored a real page | Hosted three fictional company pages on GitHub Pages and re-tested, including one with a hidden injection | Test data has to exercise the happy path too |
 | The model discounted a realistic company page because it said "fictional" and its domain didn't match the email | Kept: conservative scoring on unverified sources is what the prompt asks for | Telling the model to be sceptical works, and it costs some recall |

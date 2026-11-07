@@ -27,7 +27,7 @@ Each hand-off adds delay and a chance of error. Fast follow-up matters most for 
 | Proposal drafts that pass the code checks | 90% | 8 of 8 |
 | Invalid or spam submissions that reach the CRM | 0 | 0 of 2 |
 | Duplicate invoices for one deal | 0 | 0 (second poll skipped the invoiced deal) |
-| AI cost per lead | under $0.02 | $0.0004 to $0.0006 (B and C), $0.003 to $0.011 (A) |
+| AI cost per lead | under $0.02 | $0.0004 to $0.0007 (B and C), $0.003 to $0.011 (A) |
 
 Guardrails: the AI never sets the total score or the tier; no invoice is created on a live Stripe key; no email or invoice is sent to a customer without a person.
 
@@ -59,7 +59,7 @@ Guardrails: the AI never sets the total score or the tier; no invoice is created
 | R4 | Scraping failures must not stop scoring | Scrape Company Website (continue on error) |
 | R5 | Score = sum of four clamped sub-scores; caps for students (15) and personal email (60); tier A 70+, B 45 to 69, C under 45; tier A needs role fit 20+ | Apply ICP Rules |
 | R6 | If the AI output can't be parsed, the lead is marked `needs_review`, gets a contact, no deal | Apply ICP Rules |
-| R7 | Customer-facing AI text: 40 to 140 words, no hype words, no numbers the lead didn't give; otherwise a plain fallback sentence and a note on the deal | Check Proposal Draft |
+| R7 | Customer-facing AI text: 40 to 140 words, no hype words, no numbers that aren't in the lead's form, their website or the price list; otherwise a plain fallback sentence and a note on the deal | Check Proposal Draft |
 | R8 | Invoices only on a Stripe test key; one invoice per deal even after retries | Test Mode Only?, Not Invoiced Yet, idempotency keys |
 | R9 | Every outcome (score, tier, IDs, tokens, errors) written back to the lead row | Record Outcome, Mark Lead Invoiced |
 

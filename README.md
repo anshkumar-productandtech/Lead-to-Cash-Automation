@@ -32,7 +32,7 @@ Every run: [`results/runs.json`](results/runs.json). Full write-up: [`docs/test-
 2. **Enrich.** Firecrawl reads the company homepage. If it fails, scoring continues on the form alone.
 3. **Score.** Claude Haiku 5.5 gives four sub-scores (role, company, pain, buying signal) with evidence. Code clamps them, adds them up, applies caps and sets the tier. The model never sets the total.
 4. **CRM.** Every lead becomes a HubSpot contact; tier A and B get a deal priced at the plan.
-5. **Proposal (tier A).** Claude Sonnet 5.5 writes the opening paragraph from what the lead said. Code checks length, hype words and that every number came from the lead. A Google Doc is copied from the template, filled and linked on the deal.
+5. **Proposal (tier A).** Claude Sonnet 5.5 writes the opening paragraph from what the lead said. Code checks the length, bans hype words, and rejects any number that isn't in the lead's form, their website or the price list. A Google Doc is copied from the template, filled and linked on the deal.
 6. **Cash.** Every 15 minutes: stop if the Stripe key is live, find Closed-won deals, skip any already invoiced, create and finalize a test-mode invoice with idempotency keys, record it on the lead and the deal.
 
 ## Repository
@@ -64,11 +64,11 @@ node tests/run_tests.js   # Node 18+
 
 ## Design decisions
 
-- **The model judges, code decides.** Sub-scores with evidence are auditable; totals, caps and tiers live in tested code.
-- **Customer-facing AI text is checked before anyone sees it,** with a plain fallback.
-- **Save first, enrich second.** No lead is lost to a failed API call.
-- **Money can't move by accident.** Test keys only, idempotency keys per deal, invoices never emailed automatically.
-- **The public page isn't wired to the live webhook,** so visitors can't write into a CRM. Sample leads replay their recorded results.
+- The model gives sub-scores with evidence, and tested code sets the total, the caps and the tier.
+- Proposal text written by the AI is checked in code before anyone sees it. If it fails, a plain sentence goes in instead.
+- The raw lead is saved before any enrichment, so a failed API call never loses a lead.
+- Billing only runs on a test key, uses an idempotency key per deal, and never emails an invoice on its own.
+- The public page isn't wired to the live webhook, so visitors can't write into a CRM. Sample leads replay their recorded results.
 
 More in [`docs/decision-log.md`](docs/decision-log.md) and [`docs/security-and-privacy.md`](docs/security-and-privacy.md).
 
