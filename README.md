@@ -2,7 +2,7 @@
 
 A website demo request becomes a scored HubSpot deal, a personalised proposal in Google Docs and, once the deal is won, a Stripe invoice. AI makes the judgement calls; plain code checks every one of them.
 
-One n8n workflow (41 nodes) for a fictional B2B SaaS company, **Ledgerly**, that sells month-end close automation to finance teams.
+One n8n workflow (41 nodes) for a B2B SaaS company, **Ledgerly**, that sells month-end close automation to finance teams.
 
 **Live demo page:** https://anshkumar-productandtech.github.io/Lead-to-Cash-Automation/ · **Case study:** [`docs/case-study.md`](docs/case-study.md) · **Workflow export:** [`workflow/lead-to-cash-pipeline.n8n.json`](workflow/lead-to-cash-pipeline.n8n.json)
 
