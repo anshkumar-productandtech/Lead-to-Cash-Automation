@@ -1,0 +1,30 @@
+flowchart TB
+  subgraph S1["1. Intake"]
+    direction LR
+    A["Ledgerly demo page<br/>form + spam trap"] --> B["n8n webhook"] --> C{"Valid?"}
+    C -- no --> R["400 reply<br/>nothing saved"]
+    C -- yes --> D[("L2C Leads<br/>raw row saved")] --> E["200 reply to page"]
+  end
+  subgraph S2["2. Enrich and score"]
+    direction LR
+    F["Firecrawl<br/>homepage scrape"] --> G["Code: context +<br/>rule flags"] --> H["Claude Haiku 5.5<br/>4 sub-scores + evidence"] --> I["Code: clamp, sum,<br/>caps, tier"]
+  end
+  subgraph S3["3. CRM and proposal"]
+    direction LR
+    J["HubSpot contact<br/>(every lead)"] --> K["HubSpot deal<br/>(tier A and B)"] --> L["Claude Sonnet 5.5<br/>proposal intro"] --> M["Code: proposal<br/>checks"] --> N["Google Doc from<br/>template, linked on deal"]
+  end
+  subgraph S4["4. Won deal to cash (every 15 min)"]
+    direction LR
+    O{"Stripe key<br/>test mode?"} -- no --> X["Stop"]
+    O -- yes --> P["HubSpot: Closed won"] --> Q{"Already<br/>invoiced?"} -- no --> T["Stripe test invoice<br/>idempotency key = deal"] --> U["Mark row + deal<br/>invoiced"]
+  end
+  E --> F
+  I --> J
+  N --> V[("L2C Leads<br/>outcome row")]
+  U --> V
+  classDef ai fill:#E6F1FB,stroke:#185FA5,color:#0C447C;
+  classDef code fill:#EAF3DE,stroke:#3B6D11,color:#27500A;
+  classDef stop fill:#FCEBEB,stroke:#A32D2D,color:#791F1F;
+  class H,L ai;
+  class G,I,M code;
+  class R,X stop;

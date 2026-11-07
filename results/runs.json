@@ -1,0 +1,750 @@
+{
+  "summary": {
+    "date": "2026-11-07",
+    "workflow_version": "v1 (20 leads), v1.1 and v1.2 re-runs",
+    "leads": 20,
+    "routing_matches_expected": 19,
+    "tiers": {
+      "A": 8,
+      "B": 4,
+      "C": 6,
+      "rejected": 2
+    },
+    "proposal_gate_passed": "8 of 8",
+    "seconds_tier_A": [
+      6.39,
+      11.16
+    ],
+    "seconds_tier_A_median": 8.23,
+    "seconds_B_C": [
+      3.53,
+      7.89
+    ],
+    "seconds_rejected": [
+      0.052,
+      0.077
+    ],
+    "ai_cost_tier_A_usd": [
+      0.00335,
+      0.01092
+    ],
+    "ai_cost_B_C_usd": [
+      0.00035,
+      0.00071
+    ],
+    "ai_cost_all_20_usd": 0.0431,
+    "score_drift_on_rerun": {
+      "lead_1": [
+        90,
+        89
+      ],
+      "lead_13": [
+        81,
+        84
+      ],
+      "lead_15": [
+        72,
+        74
+      ]
+    },
+    "pinned_steps": "HubSpot, Google Drive, Google Docs and Stripe responses were simulated (credentials not connected). Firecrawl and Claude calls were live.",
+    "pricing_source": "https://platform.claude.com/docs/en/about-claude/pricing (checked 2026-11-07)"
+  },
+  "runs": [
+    {
+      "lead": 1,
+      "version": "v1",
+      "execution": 26,
+      "persona": "Head of Finance, Northwind Logistics",
+      "company_size": "51-200",
+      "email_domain": "northwind-logistics.example",
+      "expected": "A",
+      "actual_tier": "A",
+      "match": true,
+      "score": 90,
+      "breakdown": {
+        "role_fit": 28,
+        "company_fit": 20,
+        "pain_fit": 28,
+        "buying_signal": 14
+      },
+      "seconds": 9.44,
+      "enrichment": "failed (DNS)",
+      "notes": "",
+      "scoring_tokens": {
+        "in": 1328,
+        "out": 915
+      },
+      "proposal_tokens": {
+        "in": 547,
+        "out": 227
+      },
+      "proposal_gate_passed": true,
+      "ai_cost_usd": 0.00395
+    },
+    {
+      "lead": 2,
+      "version": "v1",
+      "execution": 27,
+      "persona": "Financial Controller, Brightpath Health",
+      "company_size": "201-500",
+      "email_domain": "brightpath-health.example",
+      "expected": "A",
+      "actual_tier": "A",
+      "match": true,
+      "score": 85,
+      "breakdown": {
+        "role_fit": 27,
+        "company_fit": 17,
+        "pain_fit": 29,
+        "buying_signal": 12
+      },
+      "seconds": 8.2,
+      "enrichment": "failed (DNS)",
+      "notes": "lead chose Scale, AI suggested Growth",
+      "scoring_tokens": {
+        "in": 1311,
+        "out": 1023
+      },
+      "proposal_tokens": {
+        "in": 525,
+        "out": 224
+      },
+      "proposal_gate_passed": true,
+      "ai_cost_usd": 0.00393
+    },
+    {
+      "lead": 3,
+      "version": "v1",
+      "execution": 28,
+      "persona": "Owner, Tidewater Coffee Co",
+      "company_size": "1-50",
+      "email_domain": "tidewater-coffee.example",
+      "expected": "C",
+      "actual_tier": "C",
+      "match": true,
+      "score": 23,
+      "breakdown": {
+        "role_fit": 12,
+        "company_fit": 5,
+        "pain_fit": 2,
+        "buying_signal": 4
+      },
+      "seconds": 3.87,
+      "enrichment": "skipped",
+      "notes": "",
+      "scoring_tokens": {
+        "in": 1295,
+        "out": 726
+      },
+      "proposal_tokens": {
+        "in": 0,
+        "out": 0
+      },
+      "proposal_gate_passed": null,
+      "ai_cost_usd": 0.00049
+    },
+    {
+      "lead": 4,
+      "version": "v1",
+      "execution": 29,
+      "persona": "VP Finance, Copperline Software",
+      "company_size": "51-200",
+      "email_domain": "copperline-software.example",
+      "expected": "A",
+      "actual_tier": "A",
+      "match": true,
+      "score": 82,
+      "breakdown": {
+        "role_fit": 27,
+        "company_fit": 18,
+        "pain_fit": 26,
+        "buying_signal": 11
+      },
+      "seconds": 7.54,
+      "enrichment": "failed (DNS)",
+      "notes": "",
+      "scoring_tokens": {
+        "in": 1295,
+        "out": 778
+      },
+      "proposal_tokens": {
+        "in": 498,
+        "out": 211
+      },
+      "proposal_gate_passed": true,
+      "ai_cost_usd": 0.00362
+    },
+    {
+      "lead": 5,
+      "version": "v1",
+      "execution": 30,
+      "persona": "CFO, Meridian Freight",
+      "company_size": "501-1000",
+      "email_domain": "meridian-freight.example",
+      "expected": "A",
+      "actual_tier": "A",
+      "match": true,
+      "score": 84,
+      "breakdown": {
+        "role_fit": 28,
+        "company_fit": 16,
+        "pain_fit": 26,
+        "buying_signal": 14
+      },
+      "seconds": 8.51,
+      "enrichment": "ok (placeholder page)",
+      "notes": "email_domain_mismatch",
+      "scoring_tokens": {
+        "in": 1696,
+        "out": 1020
+      },
+      "proposal_tokens": {
+        "in": 899,
+        "out": 205
+      },
+      "proposal_gate_passed": true,
+      "ai_cost_usd": 0.00453
+    },
+    {
+      "lead": 6,
+      "version": "v1",
+      "execution": 31,
+      "persona": "Student, Riverside University",
+      "company_size": "not given",
+      "email_domain": "uni-campus.example",
+      "expected": "C",
+      "actual_tier": "C",
+      "match": true,
+      "score": 8,
+      "breakdown": {
+        "role_fit": 0,
+        "company_fit": 8,
+        "pain_fit": 0,
+        "buying_signal": 0
+      },
+      "seconds": 4.47,
+      "enrichment": "skipped",
+      "notes": "student_or_education; size_not_given",
+      "scoring_tokens": {
+        "in": 1291,
+        "out": 447
+      },
+      "proposal_tokens": {
+        "in": 0,
+        "out": 0
+      },
+      "proposal_gate_passed": null,
+      "ai_cost_usd": 0.00035
+    },
+    {
+      "lead": 7,
+      "version": "v1",
+      "execution": 32,
+      "persona": "FP&A Manager, Orbit Analytics",
+      "company_size": "201-500",
+      "email_domain": "orbit-analytics.example",
+      "expected": "B",
+      "actual_tier": "B",
+      "match": true,
+      "score": 67,
+      "breakdown": {
+        "role_fit": 18,
+        "company_fit": 20,
+        "pain_fit": 18,
+        "buying_signal": 11
+      },
+      "seconds": 6.98,
+      "enrichment": "failed (DNS)",
+      "notes": "",
+      "scoring_tokens": {
+        "in": 1296,
+        "out": 1161
+      },
+      "proposal_tokens": {
+        "in": 0,
+        "out": 0
+      },
+      "proposal_gate_passed": null,
+      "ai_cost_usd": 0.00071
+    },
+    {
+      "lead": 8,
+      "version": "v1",
+      "execution": 33,
+      "persona": "Accounting Lead, Harbor & Pine Retail",
+      "company_size": "51-200",
+      "email_domain": "harborpine-retail.example",
+      "expected": "B",
+      "actual_tier": "B",
+      "match": true,
+      "score": 61,
+      "breakdown": {
+        "role_fit": 18,
+        "company_fit": 16,
+        "pain_fit": 22,
+        "buying_signal": 5
+      },
+      "seconds": 6.06,
+      "enrichment": "failed (DNS)",
+      "notes": "",
+      "scoring_tokens": {
+        "in": 1297,
+        "out": 911
+      },
+      "proposal_tokens": {
+        "in": 0,
+        "out": 0
+      },
+      "proposal_gate_passed": null,
+      "ai_cost_usd": 0.00059
+    },
+    {
+      "lead": 9,
+      "version": "v1",
+      "execution": 34,
+      "persona": "CFO, Fjord Biotech",
+      "company_size": "1000+",
+      "email_domain": "fjord-biotech.example",
+      "expected": "A or B",
+      "actual_tier": "A",
+      "match": true,
+      "score": 75,
+      "breakdown": {
+        "role_fit": 28,
+        "company_fit": 10,
+        "pain_fit": 26,
+        "buying_signal": 11
+      },
+      "seconds": 11.16,
+      "enrichment": "failed (DNS)",
+      "notes": "",
+      "scoring_tokens": {
+        "in": 1312,
+        "out": 748
+      },
+      "proposal_tokens": {
+        "in": 509,
+        "out": 940
+      },
+      "proposal_gate_passed": true,
+      "ai_cost_usd": 0.01092
+    },
+    {
+      "lead": 10,
+      "version": "v1",
+      "execution": 35,
+      "persona": "Marketing Manager, Pixelhouse Agency",
+      "company_size": "51-200",
+      "email_domain": "pixelhouse-agency.example",
+      "expected": "C",
+      "actual_tier": "C",
+      "match": true,
+      "score": 20,
+      "breakdown": {
+        "role_fit": 3,
+        "company_fit": 14,
+        "pain_fit": 0,
+        "buying_signal": 3
+      },
+      "seconds": 4.04,
+      "enrichment": "failed (DNS)",
+      "notes": "",
+      "scoring_tokens": {
+        "in": 1290,
+        "out": 591
+      },
+      "proposal_tokens": {
+        "in": 0,
+        "out": 0
+      },
+      "proposal_gate_passed": null,
+      "ai_cost_usd": 0.00042
+    },
+    {
+      "lead": 11,
+      "version": "v1",
+      "execution": 36,
+      "persona": "Head of Finance, Okafor Logistics",
+      "company_size": "51-200",
+      "email_domain": "gmail.com",
+      "expected": "B (capped at 60)",
+      "actual_tier": "B",
+      "match": true,
+      "score": 60,
+      "breakdown": {
+        "role_fit": 27,
+        "company_fit": 18,
+        "pain_fit": 27,
+        "buying_signal": 14
+      },
+      "seconds": 6.32,
+      "enrichment": "skipped",
+      "notes": "personal_email: capped 86 to 60",
+      "scoring_tokens": {
+        "in": 1298,
+        "out": 818
+      },
+      "proposal_tokens": {
+        "in": 0,
+        "out": 0
+      },
+      "proposal_gate_passed": null,
+      "ai_cost_usd": 0.00054
+    },
+    {
+      "lead": 12,
+      "version": "v1",
+      "execution": 37,
+      "persona": "Operations, Quickcart",
+      "company_size": "1-50",
+      "email_domain": "quickcart.example",
+      "expected": "C",
+      "actual_tier": "C",
+      "match": true,
+      "score": 10,
+      "breakdown": {
+        "role_fit": 5,
+        "company_fit": 5,
+        "pain_fit": 0,
+        "buying_signal": 0
+      },
+      "seconds": 4.76,
+      "enrichment": "skipped",
+      "notes": "injection in message ignored by model",
+      "scoring_tokens": {
+        "in": 1334,
+        "out": 819
+      },
+      "proposal_tokens": {
+        "in": 0,
+        "out": 0
+      },
+      "proposal_gate_passed": null,
+      "ai_cost_usd": 0.00054
+    },
+    {
+      "lead": 13,
+      "version": "v1",
+      "execution": 38,
+      "persona": "Controller, Alpine Dental Group",
+      "company_size": "51-200",
+      "email_domain": "alpine-dental.example",
+      "expected": "A or B",
+      "actual_tier": "A",
+      "match": true,
+      "score": 81,
+      "breakdown": {
+        "role_fit": 27,
+        "company_fit": 16,
+        "pain_fit": 27,
+        "buying_signal": 11
+      },
+      "seconds": 8.23,
+      "enrichment": "failed (DNS)",
+      "notes": "lead chose Starter, AI suggested Growth",
+      "scoring_tokens": {
+        "in": 1302,
+        "out": 895
+      },
+      "proposal_tokens": {
+        "in": 509,
+        "out": 216
+      },
+      "proposal_gate_passed": true,
+      "ai_cost_usd": 0.00376
+    },
+    {
+      "lead": 14,
+      "version": "v1",
+      "execution": 39,
+      "persona": "CEO, Sandline Studio",
+      "company_size": "1-50",
+      "email_domain": "sandline-studio.example",
+      "expected": "C",
+      "actual_tier": "C",
+      "match": true,
+      "score": 27,
+      "breakdown": {
+        "role_fit": 12,
+        "company_fit": 5,
+        "pain_fit": 5,
+        "buying_signal": 5
+      },
+      "seconds": 5.14,
+      "enrichment": "skipped",
+      "notes": "",
+      "scoring_tokens": {
+        "in": 1292,
+        "out": 894
+      },
+      "proposal_tokens": {
+        "in": 0,
+        "out": 0
+      },
+      "proposal_gate_passed": null,
+      "ai_cost_usd": 0.00058
+    },
+    {
+      "lead": 15,
+      "version": "v1",
+      "execution": 40,
+      "persona": "Senior Accountant, Lumen Robotics",
+      "company_size": "201-500",
+      "email_domain": "lumen-robotics.example",
+      "expected": "B",
+      "actual_tier": "A",
+      "match": false,
+      "score": 72,
+      "breakdown": {
+        "role_fit": 18,
+        "company_fit": 18,
+        "pain_fit": 24,
+        "buying_signal": 12
+      },
+      "seconds": 7.68,
+      "enrichment": "failed (DNS)",
+      "notes": "non-decision-maker reached A (fixed in v1.1)",
+      "scoring_tokens": {
+        "in": 1305,
+        "out": 806
+      },
+      "proposal_tokens": {
+        "in": 509,
+        "out": 216
+      },
+      "proposal_gate_passed": true,
+      "ai_cost_usd": 0.00371
+    },
+    {
+      "lead": 16,
+      "version": "v1",
+      "execution": 41,
+      "persona": "Head of Finance, Nordlys Energy",
+      "company_size": "501-1000",
+      "email_domain": "nordlys-energy.example",
+      "expected": "B",
+      "actual_tier": "B",
+      "match": true,
+      "score": 47,
+      "breakdown": {
+        "role_fit": 27,
+        "company_fit": 15,
+        "pain_fit": 0,
+        "buying_signal": 5
+      },
+      "seconds": 7.89,
+      "enrichment": "failed (DNS)",
+      "notes": "no_message",
+      "scoring_tokens": {
+        "in": 1282,
+        "out": 1012
+      },
+      "proposal_tokens": {
+        "in": 0,
+        "out": 0
+      },
+      "proposal_gate_passed": null,
+      "ai_cost_usd": 0.00063
+    },
+    {
+      "lead": 17,
+      "version": "v1",
+      "execution": 42,
+      "persona": "n/a, SEO Deals",
+      "company_size": "not given",
+      "email_domain": "cheap-seo.example",
+      "expected": "rejected",
+      "actual_tier": "rejected",
+      "match": true,
+      "score": null,
+      "breakdown": null,
+      "seconds": 0.077,
+      "enrichment": "n/a",
+      "notes": "spam trap filled",
+      "scoring_tokens": {
+        "in": 0,
+        "out": 0
+      },
+      "proposal_tokens": {
+        "in": 0,
+        "out": 0
+      },
+      "proposal_gate_passed": null,
+      "ai_cost_usd": 0.0
+    },
+    {
+      "lead": 18,
+      "version": "v1",
+      "execution": 43,
+      "persona": "Controller, Diaz Imports",
+      "company_size": "51-200",
+      "email_domain": "",
+      "expected": "rejected",
+      "actual_tier": "rejected",
+      "match": true,
+      "score": null,
+      "breakdown": null,
+      "seconds": 0.052,
+      "enrichment": "n/a",
+      "notes": "invalid email",
+      "scoring_tokens": {
+        "in": 0,
+        "out": 0
+      },
+      "proposal_tokens": {
+        "in": 0,
+        "out": 0
+      },
+      "proposal_gate_passed": null,
+      "ai_cost_usd": 0.0
+    },
+    {
+      "lead": 19,
+      "version": "v1",
+      "execution": 44,
+      "persona": "Accountant, Self",
+      "company_size": "not given",
+      "email_domain": "mailbox.example",
+      "expected": "C",
+      "actual_tier": "C",
+      "match": true,
+      "score": 3,
+      "breakdown": {
+        "role_fit": 0,
+        "company_fit": 3,
+        "pain_fit": 0,
+        "buying_signal": 0
+      },
+      "seconds": 3.53,
+      "enrichment": "skipped",
+      "notes": "size_not_given",
+      "scoring_tokens": {
+        "in": 1291,
+        "out": 614
+      },
+      "proposal_tokens": {
+        "in": 0,
+        "out": 0
+      },
+      "proposal_gate_passed": null,
+      "ai_cost_usd": 0.00044
+    },
+    {
+      "lead": 20,
+      "version": "v1",
+      "execution": 45,
+      "persona": "Finance Director, Atlas Freightworks",
+      "company_size": "51-200",
+      "email_domain": "atlas-freightworks.example",
+      "expected": "A",
+      "actual_tier": "A",
+      "match": true,
+      "score": 87,
+      "breakdown": {
+        "role_fit": 27,
+        "company_fit": 20,
+        "pain_fit": 26,
+        "buying_signal": 14
+      },
+      "seconds": 6.39,
+      "enrichment": "skipped",
+      "notes": "",
+      "scoring_tokens": {
+        "in": 1304,
+        "out": 731
+      },
+      "proposal_tokens": {
+        "in": 497,
+        "out": 186
+      },
+      "proposal_gate_passed": true,
+      "ai_cost_usd": 0.00335
+    }
+  ],
+  "reruns": [
+    {
+      "lead": 15,
+      "version": "v1.1",
+      "execution": 46,
+      "actual_tier": "B",
+      "score": 74,
+      "seconds": 6.98,
+      "notes": "moved to B: tier A needs role_fit >= 20"
+    },
+    {
+      "lead": 1,
+      "version": "v1.1",
+      "execution": 47,
+      "actual_tier": "A",
+      "score": 89,
+      "seconds": 7.54,
+      "notes": "regression check, still A"
+    },
+    {
+      "lead": 13,
+      "version": "v1.1",
+      "execution": 48,
+      "actual_tier": "A",
+      "score": 84,
+      "seconds": 7.16,
+      "notes": "regression check, still A"
+    },
+    {
+      "lead": "E1",
+      "version": "v1.2",
+      "execution": 49,
+      "persona": "VP Finance, Copperline Software (hosted fictional site)",
+      "actual_tier": "B",
+      "score": 67,
+      "seconds": 10.69,
+      "enrichment": "ok",
+      "notes": "site showed 140 staff, 3 entities, finance team; model discounted it because the page says it is fictional and the domain differs from the email"
+    },
+    {
+      "lead": "E2",
+      "version": "v1.2",
+      "execution": 50,
+      "persona": "Owner, Tidewater Coffee Co (hosted fictional site)",
+      "actual_tier": "C",
+      "score": 26,
+      "seconds": 6.21,
+      "enrichment": "ok",
+      "notes": "site says single cafe, team of eight: company_fit 4/25"
+    },
+    {
+      "lead": "E3",
+      "version": "v1.2",
+      "execution": 51,
+      "persona": "Founder, Quickcart (site contains a hidden prompt injection)",
+      "actual_tier": "C",
+      "score": 26,
+      "seconds": 6.54,
+      "enrichment": "ok",
+      "notes": "injection ignored and flagged in the rep summary"
+    }
+  ],
+  "won_deal_tests": [
+    {
+      "test": "closed-won deal, not yet invoiced",
+      "execution": 52,
+      "result": "customer, draft invoice, line item, finalize; lead row marked invoiced",
+      "seconds": 0.23,
+      "stripe": "simulated responses"
+    },
+    {
+      "test": "same deal on the next poll",
+      "execution": 53,
+      "result": "Not Invoiced Yet filtered it out; no Stripe call",
+      "seconds": 0.05,
+      "stripe": "not called"
+    },
+    {
+      "test": "live Stripe key",
+      "execution": 54,
+      "result": "stopped with error before any HubSpot or Stripe write",
+      "seconds": null,
+      "stripe": "not called"
+    }
+  ]
+}
